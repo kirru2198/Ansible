@@ -2,9 +2,20 @@ What is an Ansible?
     ansible is an configuration management tool
 
 Imagine you have a bunch of computers (or servers) that you need to take care of. You might need to install software, update them, or change their settings. Normally, you'd have to do all of this by hand, one computer at a time. That would take forever, especially if there are many computers.
-
 Ansible is like a super-efficient robot helper that can do all of this for you automatically. You simply tell Ansible what you want to be done (like installing a program), and it goes and does it on all your computers at once. You don’t have to touch each computer individually.
-
 The best part? Ansible doesn’t need any special software on those computers, and you don’t need to tell it step-by-step what to do every time. You just describe the end result you want, and Ansible handles the rest.
-
 So, in layman's terms, Ansible is a tool that helps you manage and control many computers easily, without having to manually do everything on each one.
+
+What is configuration management?
+
+Configuration management is like setting up and keeping everything in your house organized and working properly. Imagine you have a bunch of rooms (computers, servers, or systems) that need to be set up with furniture, tools, and appliances (software, settings, and services). You want everything to be arranged just right, and you also want to make sure that it stays that way.
+In the world of computers, configuration management makes sure that all the systems (like servers or machines) are set up the same way and stay in the right state. It helps you control things like:
+
+Installing Software: Just like arranging furniture in each room, you install the right programs on your computers (like web servers, databases, etc.).
+Setting Preferences: You might set rules for your house, like what temperature to keep the rooms or how the lights should work. Similarly, configuration management sets rules for your computers, like how they should behave, which services should be running, and which settings should be applied.
+Keeping Things Consistent: Imagine you want your house to stay tidy and organized all the time. Even if someone moves something around, configuration management makes sure it gets back in the right place. For computers, it makes sure that if something changes, it gets fixed automatically to stay consistent with how it should be.
+Fixing Problems: If something goes wrong, like a door breaking or a light not working, configuration management helps you quickly fix it, just like having a checklist of tasks to repair or adjust things in your house.
+
+In short, configuration management is a way of making sure your systems and computers are set up right and stay in the right state without you having to do everything manually. It's about keeping things consistent, organized, and running smoothly.
+
+
