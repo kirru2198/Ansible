@@ -1,0 +1,10 @@
+What is an Ansible? 
+    ansible is an configuration management tool
+
+Imagine you have a bunch of computers (or servers) that you need to take care of. You might need to install software, update them, or change their settings. Normally, you'd have to do all of this by hand, one computer at a time. That would take forever, especially if there are many computers.
+
+Ansible is like a super-efficient robot helper that can do all of this for you automatically. You simply tell Ansible what you want to be done (like installing a program), and it goes and does it on all your computers at once. You don’t have to touch each computer individually.
+
+The best part? Ansible doesn’t need any special software on those computers, and you don’t need to tell it step-by-step what to do every time. You just describe the end result you want, and Ansible handles the rest.
+
+So, in layman's terms, Ansible is a tool that helps you manage and control many computers easily, without having to manually do everything on each one.
