@@ -1,0 +1,37 @@
+What is Ansible? 
+
+Ansible is one of configuration management tool 
+
+Configuration management: 
+  - installing softwares on multiple systems using the master slave configuration (wherein on your master you would have the Ansible installed, then on slaves you just have to specify on which machine what to install and everything will be done automatically)
+      - time saving and error free (because of automation)
+
+
+The only requirment of Ansible is preinstalled Python3. (both on master and slave)
+
+How does Ansible work?
+    at the core of this configuration management tool you have something called as Ansible Playbooks. 
+      - An Ansible Playbook is a place where you basically put on code what exactly you want to configure on the remote systems 
+        - so whatever you write on the Ansible playbooks is executed by Ansible on the Remote system.
+          - Ansible Playbook plays a key role in the functioning of Ansible ecosystem 
+
+Ansible Playbooks are basically written in YMAL
+        - YMAL is yet another markup language
+
+example:
+      Josh is a guy who basically wnats to configure (= install) remote systems with a particular software (in this case Apache Tomcat).
+          how would he do that - 
+            - Josh basically write an Ansible playbook, in which he spacify what kind of software he wants install on the remote systems.
+            - now Once he specified everything in the Ansible playbook, now he will deploy this Ansible playbook on the Ansible Master and on the Ansible slaves all these softwares will be installed
+
+Instead of going to each system to install the software, he will write it in place (in Ansible Playbook) and in that playbook we will be defining all the tasks that has to be done on the remote systems on one central place that is the Ansible Master. Run that playbook, everything will be executed on the remote systems. 
+
+(code file = playbook)
+
+
+        
+
+
+
+
+
