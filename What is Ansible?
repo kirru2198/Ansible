@@ -29,6 +29,31 @@ Instead of going to each system to install the software, he will write it in pla
 (code file = playbook)
 
 
+# Ansible Architecture 
+  - basically you have something called as an Administator -- he will basically write an Ansible Playbook -- which is nothing but what all do i want to accomplish on the remote systems -- that i will be specifying in this code file 
+  - so once i specified everything in the code file the next thing would be, to put this code file on the Ansible Master 
+  - i will put this playbook on the Ansible master 
+  - Ansible Master in turn has the inventories and i has somthing called as Modules
+
+  # what are Inventories? 
+      - Inventories are basically code files which will have the host IP address
+          - means, all these slaves that exit on the ansible cluster are called as Ansible Hosts
+
+      - Now how would Master know which host do i connect to --- that information basically Ansible gathers from Inventories
+          - in the Inventories, basically you can group certain number of slaves and call them something (like production, testing) and you can name each slave as a name as well 
+
+      Nomenculater, grouping, everything happens in the Inventories 
+
+
+      #What is the purpose of naming them? 
+          - the purpose is that when i'm writing playbooks, i don't have to worry about which IP address is my host on or which IP address should this command be executed on
+
+        - all we mention in the playbook is --- on what what servers (what group of servers or what name of servers) do i have to execute this commands on --- and basically those names are resloved (= pulled, retrieved, gathered, taken) from the inventories which exist on the Ansible master and then your request is executed
+        - all the IP addresses that you have or all the remote systems ehich you are connected to the Ansible master, their information is stored in the Inventories 
+
+    # What are Modules? (3: 03)
+
+
         
 
 
