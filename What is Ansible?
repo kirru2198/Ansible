@@ -86,7 +86,80 @@ Instead of going to each system to install the software, he will write it in pla
         # play 
           - A play is the combination of tasks that you want to do on a particular host. 
               - so you define the play and inside the play you define the tasks that has to be done.
-                  - each task has something called as module, Notify and Handler. (1: 36)
+                  - each task has something called as module, Notify, Handler and lot of other things as well.
+
+          - So in a play you can have any number of taks written and these tasks are executed on a particular host using a particular condition --- that's why it is called a play.
+
+Say we want to create a playbook with two plays with following tasks
+1. Execute a command in host1
+2. Execute a script in host1
+3. Execute a script in host2
+4. Install nginx in host2
+
+#example playbook 
+
+---
+- hosts: host1
+  sudo: yes
+  name: play 1
+  tasks: 
+      - name: Execute command 'Date'
+        command: date
+      - name: Execute script on server 
+        script: test_script.sh
+
+
+- hosts: host2
+  name: play 2
+  sudo: yes
+  tasks: 
+      - name: Execute scripts on server
+        script: test_script.sh
+      - name: Install nginx
+        apt: name=nginx state=latest
+
+
+# plays start with symbol (-)
+# in the above example we have two plays 
+# exach play has 2 tasks
+
+    - name: Execute command 'Date' --- this is the discriptive name of the task -- this does not get executed, this could be any string that you want to give.
+    - command: date ---- second thing is you will have to pass the command -- now what command has to be executed on terminal that same exact command you have to mention here
+
+        # Every task will start with the name and has to be followed by an hyphen (-)
+            - Hyphen marks the begining of a new task 
+            
+        # Now whenever you starting a new play, in that case also you have to begin with a Hyphen (-), you specify the host name (i.e., hosts: host1)
+          - name that we are specifying for the hosts over here has to exactly match with the  /etc/ansible/hosts
+          - "hosts" can have one host or group of hosts from the inventory file /etc/ansible/hosts
+
+        # wether that particular command has to use sudo, we have to mention that (sudo: yes)
+        # name of the play, it could be anything, just a string you can pass in anything over here 
+
+      # apt: name=nginx state=latest --- in this state=latest -- this implies version that we want to install
+
+      # For Ubuntu we use "apt", it differes based on the OS of the machine.
+
+    # we always start a YAML file with 3 Hyphens (---)
+
+      # each play is like a dictionary and has name, hosts, tasks, Order doesn't matter.
+      # So the playbook is a list of dictionaries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
