@@ -33,7 +33,7 @@ Instead of going to each system to install the software, he will write it in pla
   - basically you have something called as an Administator -- he will basically write an Ansible Playbook -- which is nothing but what all do i want to accomplish on the remote systems -- that i will be specifying in this code file 
   - so once i specified everything in the code file the next thing would be, to put this code file on the Ansible Master 
   - i will put this playbook on the Ansible master 
-  - Ansible Master in turn has the inventories and i has somthing called as Modules
+  - Ansible Master in turn has the inventories and has somthing called as Modules
 
   # what are Inventories? 
       - Inventories are basically code files which will have the host IP address
@@ -51,7 +51,49 @@ Instead of going to each system to install the software, he will write it in pla
         - all we mention in the playbook is --- on what what servers (what group of servers or what name of servers) do i have to execute this commands on --- and basically those names are resloved (= pulled, retrieved, gathered, taken) from the inventories which exist on the Ansible master and then your request is executed
         - all the IP addresses that you have or all the remote systems ehich you are connected to the Ansible master, their information is stored in the Inventories 
 
-    # What are Modules? (3: 03)
+    # What are Modules?
+        - Modules are nothing but pre-built functions in Ansible 
+            - Pre-built means if there is anything that you have to do using Ansible, you should first check weather do you have a Module on that or Not.   
+              - if you have a Module on that particular task, it is better to call that Module directly in the Playbook than to write the logic in the Playbook again. 
+
+    # What are Ansible Hosts? 
+        - these hosts are nothing but slaves
+            - And in order for the Ansible Master to connect to these Hosts, it uses the SSH connection. 
+
+        # What we have to do is ---- our Master should be able to SSH into your Host without any password and without putting any key.
+            - basically, if that SSH connection is being formed, then your Ansible Master can also communicate with all the Hosts which are present on the cluster.
+            - there are only 2 conditions 
+                  - the SSH should be enabled, and 
+                  - the Python itself should be installed on all the Hosts which want to connect to the Ansible Master.
+                        # if these two conditions are full filled, you Ansible Master can successfully connect to all the Hosts that are there on the cluster
+
+
+#advantages
+    - Cloud provides better operations and security to its clients 
+    - increased team efficiency 
+    - Patching updates went from a multi-day process to 45 minutes 
+
+
+# Creating Ansible Playbooks 
+    - Ansible playbook is the code part of what Ansible does in it's day-to-day activity.
+        - whatever you write inside the Ansible playbook is actually executed on all the servers, which are basically connected to the Ansible server (master).
+
+
+    # Playbook 
+        - A Playbook means a book of plays (a playbook essentially should have lot of plays)
+            - the first level in the tree of the playbook comes "Play". (you can have multiple plays in a playbook)
+
+        # play 
+          - A play is the combination of tasks that you want to do on a particular host. 
+              - so you define the play and inside the play you define the tasks that has to be done.
+                  - each task has something called as module, Notify and Handler. (1: 36)
+
+
+
+        
+      
+
+
 
 
         
