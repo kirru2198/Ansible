@@ -47,8 +47,3 @@ I have shared a Terraform project repository with examples and use cases. Please
 
 ## Next Steps
 Tomorrow, we will dive into Ansible examples and revisit how Terraform and Ansible complement each other to create a seamless infrastructure management solution.
-
-Let me know if you need further clarification!
-```
-
-Let me know if you'd like any additional changes or explanations!
