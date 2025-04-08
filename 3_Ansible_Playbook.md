@@ -1,9 +1,5 @@
 # Ansible Playbook Training
 
-## Introduction
-Good morning, everyone! Can you hear me clearly? Can you see my screen? Please confirm. Thanks, VHE!  
-Let’s get started. I’ll quickly log into my machine. This is **Ansible**. If you have any questions or doubts, feel free to ask. If there’s anything you want me to repeat or clarify, let me know. I’ll be covering some basic concepts first, and then we’ll move on to the labs.
-
 ## Ansible Modules
 Ansible modules are prewritten **Python** programs that you can find in Ansible's documentation. These modules are designed to perform specific tasks like:
 
