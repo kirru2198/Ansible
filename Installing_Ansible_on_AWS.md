@@ -68,6 +68,4 @@ ansible -m ping all
 ```
 
 If everything is configured correctly, you should receive a successful ping response from the slave.
-```
 
-This markdown should serve as a clear guide for setting up Ansible on AWS with an Ansible Master and Slave configuration. Let me know if you need any further adjustments!
