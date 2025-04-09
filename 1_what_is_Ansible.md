@@ -26,6 +26,4 @@ The only requirement for running Ansible is that **Python 3** must be preinstall
 ---
 
 In summary, Ansible is an efficient configuration management tool that simplifies IT operations, reduces errors, and saves time by automating repetitive tasks across multiple systems.
-```
 
-This Markdown gives a detailed overview of Ansible, its functionality, and how it works in a configuration management context.
