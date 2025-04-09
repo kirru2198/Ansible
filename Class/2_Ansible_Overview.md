@@ -273,10 +273,214 @@ The same logic applies when installing MySQL:
 1. Define a playbook to install MySQL.
 2. Ensure MySQL service is started and enabled.
 3. Create a sample database.
+---
+
+# Installing and Configuring MySQL on Ubuntu Server Using Ansible
+
+## Overview
+
+In this guide, we'll walk through the steps to install MySQL on Ubuntu servers using Ansible. We'll cover the necessary tasks for installation, configuration, and database creation, all of which can be executed automatically on multiple servers.
+
+### Playbook Breakdown
+
+Ansible playbooks are used to automate tasks. Below is an example of a playbook used to install and configure MySQL on Ubuntu servers.
+
+```yaml
+---
+- name: Install MySQL on Ubuntu Server
+  hosts: dbservers
+  become: true  # Run tasks as root using sudo
+
+  vars:
+    mysql_root_password: "StrongRootPassword123"  # Define the root password variable
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes  # Update the apt package index
+
+    - name: Install MySQL server
+      apt:
+        name: mysql-server  # MySQL package name
+        state: present  # Ensure the package is installed
+
+    - name: Ensure MySQL service is started and enabled
+      service:
+        name: mysql
+        state: started  # Start the MySQL service
+        enabled: yes  # Enable MySQL to start on boot
+
+    - name: Set MySQL root password
+      mysql_user:
+        name: root
+        host: localhost
+        password: "{{ mysql_root_password }}"
+        check_implicit_admin: yes  # Ensure the root password is set
+        no_log: true  # Hide the password from logs
+
+    - name: Secure MySQL installation (disable remote root login)
+      mysql_user:
+        name: root
+        host: "{{ item }}"
+        state: absent  # Remove root access from remote hosts
+      with_items:
+        - 127.0.0.1
+        - ::1
+        - localhost
+
+    - name: Create a sample database
+      mysql_db:
+        name: sample_db
+        state: present  # Ensure the sample database is created
+```
+
+---
+
+## Detailed Explanation of Each Step
+
+### 1. Playbook Definition
+
+```yaml
+name: Install MySQL on Ubuntu Server
+hosts: dbservers
+become: true
+```
+
+- **name**: Describes the purpose of the playbook.
+- **hosts**: The servers this playbook will be executed on. In this case, `dbservers` indicates a group of database servers defined in your Ansible inventory.
+- **become**: Ensures the playbook runs with root privileges using `sudo`.
+
+### 2. Variables Section
+
+```yaml
+vars:
+  mysql_root_password: "StrongRootPassword123"
+```
+
+- Defines variables used in the playbook. Here, `mysql_root_password` is the root password for MySQL.
+
+### 3. Updating apt Cache
+
+```yaml
+- name: Update apt cache
+  apt:
+    update_cache: yes
+```
+
+- This task updates the package index on the server before installing any packages, ensuring you have the latest version of MySQL available.
+
+### 4. Installing MySQL Server
+
+```yaml
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+```
+
+- Installs the `mysql-server` package. The `state: present` ensures MySQL is installed, but doesn't reinstall if it’s already present.
+
+### 5. Starting and Enabling MySQL Service
+
+```yaml
+- name: Ensure MySQL service is started and enabled
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+```
+
+- Ensures the MySQL service is started and set to start automatically on system reboot.
+
+### 6. Setting MySQL Root Password
+
+```yaml
+- name: Set MySQL root password
+  mysql_user:
+    name: root
+    host: localhost
+    password: "{{ mysql_root_password }}"
+    check_implicit_admin: yes
+    no_log: true
+```
+
+- This task sets the root password for MySQL using the variable `mysql_root_password`. The `no_log: true` prevents the password from being displayed in logs.
+
+### 7. Securing MySQL (Disabling Remote Root Login)
+
+```yaml
+- name: Secure MySQL installation (disable remote root login)
+  mysql_user:
+    name: root
+    host: "{{ item }}"
+    state: absent
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
+```
+
+- Disables remote root login by removing the root user for specific IPs (`127.0.0.1`, `::1`, and `localhost`). This is a security measure to restrict root access to localhost only.
+
+### 8. Creating a Sample Database
+
+```yaml
+- name: Create a sample database
+  mysql_db:
+    name: sample_db
+    state: present
+```
+
+- Creates a sample database named `sample_db` to test the MySQL installation.
+
+---
+
+## Running the Playbook
+
+To execute this playbook, run the following command on your Ansible control node:
+
+```bash
+ansible-playbook install_mysql.yml
+```
+
+This command will execute the tasks defined in the playbook on all servers specified in the `dbservers` group.
+
+---
+
+## Benefits of Using Ansible for MySQL Installation
+
+1. **Consistency**: Ansible ensures that MySQL is installed and configured the same way across all target servers.
+2. **Scalability**: Instead of manually installing MySQL on hundreds of servers, you can use the same playbook to install it on as many servers as needed.
+3. **Automation**: By using Ansible, you automate repetitive tasks and reduce the possibility of human error.
+4. **Idempotency**: Ansible's declarative nature means that you can run the playbook multiple times, and it will only make changes if necessary (e.g., if MySQL is not installed or configured correctly).
+
+---
+
+## Declarative vs Imperative Approach
+
+### Declarative Approach
+
+- In the declarative approach, you **declare** the desired state of the system, and Ansible handles how to achieve that state. For example, when you declare that a package should be installed, Ansible will ensure the package is present, regardless of whether it's already installed.
+- **Example in this playbook**: Using `state: present` to install the MySQL package and ensure it's running.
+
+### Imperative Approach
+
+- In the imperative approach, you **explicitly instruct** Ansible on how to achieve a task. For example, you might tell Ansible to install a package and then restart a service, but this approach doesn't focus on the desired end state.
+- **Example**: Using shell commands or specific commands to install and configure MySQL manually.
+
+### Benefits of the Declarative Approach
+
+1. **Reusability**: You can reuse the same playbook on multiple servers or environments without modification.
+2. **Idempotency**: If the system is already in the desired state, Ansible will not make changes.
+3. **Clarity**: You describe what you want in simple terms, and Ansible takes care of the how.
 
 ---
 
 ## Conclusion
+
+Using Ansible to install and configure MySQL provides a streamlined, repeatable, and scalable solution for managing database servers. With the declarative approach, you ensure that your infrastructure is always in the desired state, making it easier to maintain and automate.
+
+---
 
 Using Ansible playbooks, you can easily automate tasks across multiple servers. The playbook allows you to write simple and repeatable configurations, ensuring consistency and speed, especially when managing a large number of servers.
 
