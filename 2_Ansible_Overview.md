@@ -116,8 +116,10 @@ This command creates a user on the target servers with admin rights.
 If you run the command without root access, you might get a "Permission Denied" error. To avoid this, use the `-b` flag to elevate to root privileges, allowing you to execute commands as an administrator.
 
 ### 5. Verifying Changes
-After running the command with root privileges, verify that the user was created by checking the server.
-
+After running the command with root privileges, verify that the user was created by checking the dbserver.
+```
+id user
+```
 ---
 
 ## Example: Using Ansible to Manage Users
