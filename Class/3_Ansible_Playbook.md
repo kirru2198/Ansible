@@ -42,6 +42,23 @@ Let me know if anything is unclear, and we can go over it again!
   - **Playbooks** (the tasks to be executed)
   - **Roles** (reusable components for tasks)
   - **Variables** (to customize values in tasks)
+    
+```plaintext
+  ansible_project/
+│
+├── ansible.cfg             # Optional configuration file for Ansible settings
+├── inventory/              # Inventory file defining hosts
+│   └── hosts               # Static inventory file (INI or YAML format)
+│
+├── playbooks/              # Directory for Ansible playbooks
+│   └── site.yml            # Main playbook to run automation tasks
+│
+└── roles/                  # Directory for Ansible roles (if needed)
+    └── common/             # A basic role (can include tasks, handlers, etc.)
+        └── tasks/
+            └── main.yml    # Main task file for the role
+```
+
 
 - Keep your **inventory file** specific to the project rather than modifying the default one found in `/etc/ansible/hosts`. You can specify which inventory file to use when running a playbook.
 
