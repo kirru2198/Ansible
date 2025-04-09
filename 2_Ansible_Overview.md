@@ -157,7 +157,7 @@ Ansible uses a **declarative approach** to automate tasks. Instead of running co
 YAML files are used in Ansible playbooks to define tasks. Each YAML file starts with `---` and includes key components:
 
 - **Name**: Describes what the playbook will do.
-- **Hosts**: Specifies the target servers.
+- **Hosts**: Specifies the target servers. (in this place we can also give ip address of a single server)
 - **Become**: Allows tasks to run as the root user.
 
 ### Tasks
@@ -165,25 +165,29 @@ Tasks define the actions to perform (e.g., install a package, start a service, c
 
 Example:
 ```yaml
-- name: Install Apache Web Server
+- name: Install Apache on Ubuntu Server
   hosts: webservers
   become: true
   tasks:
     - name: Update the app cache
       apt:
         update_cache: yes
-    - name: Install Apache
+    - name: Install Apache2
       apt:
         name: apache2
         state: present
     - name: Start Apache service
       service:
         name: apache2
+        state: present
+    - name: Ensure Apache service is started and enabled 
+      service:
+        name: apache2
         state: started
         enabled: yes
     - name: Configure Apache index page
       copy:
-        content: "Welcome to Apache Web Server!"
+        content: "<h1>Welcome to Apache Web Server!</h1>"
         dest: "/var/www/html/index.html"
 ```
 
