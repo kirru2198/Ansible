@@ -69,6 +69,13 @@ sudo nano ./.ssh/authorized_keys
 
 This setup allows Ansible to operate without needing to enter passwords each time a command is executed.
 
+When testing passwordless SSH between a master node and a slave node, you should use the **private IP addresses** of the nodes if they are within the same local network or if they are part of an internal network (e.g., cloud instances in the same region or VPC).
+
+Here’s the reasoning:
+- **Private IP**: If both the master and slave nodes are within a private network (like a VPC or local network), you'll use the private IP address of the slave node to test the passwordless SSH connection.
+- **Public IP**: If the nodes are on different networks (e.g., the master node is outside the private network of the slave), and the slave is reachable over the internet, then you would use the **public IP**.
+
+But, in most cases where both nodes are part of the same local or cloud network, you'd typically use the **private IP** for testing passwordless SSH.
 ---
 
 ## Working with Ansible - Using an Inventory File
