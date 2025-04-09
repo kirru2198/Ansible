@@ -1,7 +1,7 @@
 # Understanding Configuration Management
 
 ## Introduction
-We need to understand how we are installing and configuring applications. This can be done using Terraform, but with some caveats. The answer to whether Terraform is suitable for configuration management is both yes and no.
+We need to understand how we are installing and configuring (= making changes) applications. This can be done using Terraform, but with some caveats. The answer to whether Terraform is suitable for configuration management is both yes and no.
 
 ## What is Configuration Management?
 Configuration management is the process of installing, modifying, or removing software and making changes to a system. For example, if I want to install Apache on an EC2 instance, the process typically involves:
