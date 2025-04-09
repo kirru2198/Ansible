@@ -152,6 +152,21 @@ Ansible uses a **declarative approach** to automate tasks. Instead of running co
 - Start the service.
 - Ensure it runs on reboot.
 
+### Create a folder myAnsiblePlayBooks
+
+Create a folder with the name myAnsiblePlayBooks, inside which create playbooks
+
+```bash
+sudo mkdir myAnsiblePlayBooks
+```
+```bash
+cd myAnsiblePlayBooks
+```
+```bash
+sudo nano install_apache.yml
+```
+then past the yaml file 
+
 ### YAML File Structure
 
 YAML files are used in Ansible playbooks to define tasks. Each YAML file starts with `---` and includes key components:
@@ -190,7 +205,56 @@ Example:
         content: "<h1>Welcome to Apache Web Server!</h1>"
         dest: "/var/www/html/index.html"
 ```
+---
+To run an Ansible playbook, you use the `ansible-playbook` command. The basic syntax is as follows:
 
+```bash
+ansible-playbook <playbook_file.yml>
+```
+
+### Example:
+
+If your playbook file is named `install_apache.yml`, you would run the following command:
+
+```bash
+ansible-playbook install_apache.yml
+```
+
+### Additional Options
+
+- **Specify the Inventory File**: If you're using a custom inventory file instead of the default `/etc/ansible/hosts`, you can specify it with the `-i` flag:
+
+  ```bash
+  ansible-playbook -i /path/to/inventory install_apache.yml
+  ```
+
+- **Check Mode**: If you want to see what changes would be made without actually applying them, you can use the `--check` option:
+
+  ```bash
+  ansible-playbook --check install_apache.yml
+  ```
+
+- **Verbose Output**: To get more detailed output while the playbook is running, you can use the `-v` (verbose) flag:
+
+  ```bash
+  ansible-playbook -v install_apache.yml
+  ```
+
+  You can increase verbosity with `-vv`, `-vvv`, etc., for even more detailed output.
+
+- **Limit**: If you want to run the playbook on specific hosts or groups from your inventory, you can use the `--limit` option:
+
+  ```bash
+  ansible-playbook --limit myhost install_apache.yml
+  ```
+
+  Or you can limit it to a group of hosts:
+
+  ```bash
+  ansible-playbook --limit webservers install_apache.yml
+  ```
+
+These are some common ways to run an Ansible playbook. You can explore more options using `ansible-playbook --help`.
 ---
 
 ## Troubleshooting
