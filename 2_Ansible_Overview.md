@@ -120,6 +120,8 @@ After running the command with root privileges, verify that the user was created
 ```
 id user
 ```
+<img width="362" alt="image" src="https://github.com/user-attachments/assets/fc6bd7e2-4bda-4ac7-a65b-7d97875997bd" />
+
 ---
 
 ## Example: Using Ansible to Manage Users
