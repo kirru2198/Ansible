@@ -497,9 +497,6 @@ With a declarative approach, Ansible allows you to describe the desired outcome 
 
 ---
 
-Certainly! Below is the markdown version of your content with a structured explanation:
-
-```markdown
 # Uninstalling MySQL: A Manual and Declarative Approach with Ansible
 
 In this guide, we will go over how to uninstall MySQL, first using a manual approach, and then we'll explore how to automate it with Ansible. 
