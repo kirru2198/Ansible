@@ -57,7 +57,7 @@ sudo nano /etc/ansible/hosts
 Inside the file, add the following syntax to define the slave. Replace `<slave-ip-address>` with the actual IP address of the slave:
 ```
 [servers]
-server1 ansible_host=<slave-ip-address>
+server1 ansible_host=<slave-private-ip-address>
 ```
 You can ignore the sample entries in the file and add the new values as required. This will complete the Ansible configuration on the Master.
 
