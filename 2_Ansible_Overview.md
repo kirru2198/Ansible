@@ -94,8 +94,14 @@ Each server entry has either an IP address or a Fully Qualified Domain Name (FQD
 
 ### 2. Creating Entries
 You would add entries for the web and database servers in the inventory file:
-- Web server: `10.5.0.4`
-- DB server: `10.5.0.8`
+```
+[Web server]
+`10.5.0.4`
+```
+```
+[DB server]
+`10.5.0.8`
+```
 
 ### 3. Running Ansible Commands
 To perform tasks like creating users on these servers, you can use the `ansible` command. For example, to create a user, you would use the `user` module. Since root privileges are required to add a user, you need to use the `-b` option (for "become root").
