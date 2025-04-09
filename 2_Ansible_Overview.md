@@ -229,6 +229,3 @@ You can check my GitHub for detailed examples and explanations. It's a great res
 Feel free to reach out if you have any questions. Tomorrow, we’ll cover some leftover topics and more hands-on workshops. You’ll get to implement more use cases.
 
 See you tomorrow, and have a great day!
-```
-
-This markdown should be easy to follow and understand. Let me know if you'd like further adjustments!
