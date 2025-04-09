@@ -99,7 +99,7 @@ You would add entries for the web and database servers in the inventory file:
 10.5.0.4
 ```
 ```
-[DB server]
+[dbserver]
 10.5.0.8
 ```
 
@@ -108,7 +108,7 @@ To perform tasks like creating users on these servers, you can use the `ansible`
 
 Example command to add a user:
 ```bash
-ansible -m user -a "name=test_user password=secret" -b
+ansible -m user -a "name=test_user password=secret" dbserver -b
 ```
 This command creates a user on the target servers with admin rights.
 
