@@ -614,7 +614,7 @@ Here's the full Ansible playbook for uninstalling MySQL:
 ```yaml
 ---
 - name: Uninstall MySQL
-  hosts: your_server
+  hosts: dbserver
   become: yes
   tasks:
     - name: Stop MySQL service
