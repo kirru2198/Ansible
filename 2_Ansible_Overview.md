@@ -56,6 +56,12 @@ To run Ansible, you need passwordless SSH between the master (control node) and 
 
 2. **Copy the Public Key to the Slave**:
    - Copy the public key (located in `~/.ssh/id_rsa.pub`) to the slave's `~/.ssh/authorized_keys` file.
+```bash
+sudo cat ./.ssh/id_rsa.pub
+```
+```bash
+sudo nano ./.ssh/authorized_keys
+```
    - Use the `ssh-copy-id` command or manually copy the key using `scp` or any other method.
 
 3. **Test the Passwordless SSH**:
