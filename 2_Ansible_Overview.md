@@ -96,11 +96,11 @@ Each server entry has either an IP address or a Fully Qualified Domain Name (FQD
 You would add entries for the web and database servers in the inventory file:
 ```
 [Web server]
-`10.5.0.4`
+10.5.0.4
 ```
 ```
 [DB server]
-`10.5.0.8`
+10.5.0.8
 ```
 
 ### 3. Running Ansible Commands
