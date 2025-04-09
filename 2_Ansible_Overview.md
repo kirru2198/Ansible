@@ -255,6 +255,7 @@ ansible-playbook install_apache.yml
   ```
 
 These are some common ways to run an Ansible playbook. You can explore more options using `ansible-playbook --help`.
+
 ---
 
 ## Troubleshooting
