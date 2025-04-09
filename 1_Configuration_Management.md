@@ -1,4 +1,4 @@
-# Understanding Configuration Management and Terraform
+# Understanding Configuration Management
 
 ## Introduction
 We need to understand how we are installing and configuring applications. This can be done using Terraform, but with some caveats. The answer to whether Terraform is suitable for configuration management is both yes and no.
