@@ -225,7 +225,3 @@ With a declarative approach, Ansible allows you to describe the desired outcome 
 ---
 
 You can check my GitHub for detailed examples and explanations. It's a great resource for real-life scenarios to help you during interviews or with daily tasks. I recommend going through it step by step to understand the concepts clearly.
-
-Feel free to reach out if you have any questions. Tomorrow, we’ll cover some leftover topics and more hands-on workshops. You’ll get to implement more use cases.
-
-See you tomorrow, and have a great day!
