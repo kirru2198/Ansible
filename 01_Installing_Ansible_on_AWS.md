@@ -33,6 +33,20 @@ Paste the public key into the second line of the file. Save and exit the editor.
 
 Now, keyless access has been configured between your Ansible Master and Slave. You can verify it by SSH-ing from your Master to your Slave and checking that the connection is successful.
 
+> ✅ Manually test SSH from master to slave
+> Run the following command from the Ansible master node:
+
+> ```bash
+> ssh username@slave-ip
+> ```
+> You should:
+
+> Connect without being asked for a password (if using key-based authentication)
+
+> Get shell access to the remote machine
+
+> If this works, Ansible should be able to use SSH to connect too.
+
 With this, the pre-requisites are successfully configured.
 
 ---
