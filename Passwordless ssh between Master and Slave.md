@@ -11,7 +11,7 @@ To enable keyless SSH access between your Ansible master (control node) and slav
 
    ```bash
    ssh-keygen -t rsa -b 2048
-````
+   ````
 
 * This will prompt you to choose the location to save the key. Press Enter to accept the default path (`~/.ssh/id_rsa`).
 * You can choose to enter a passphrase or leave it empty (for keyless login, leave it empty).
