@@ -1,6 +1,3 @@
-Sure! Here's your content converted into **Markdown format**:
-
-````markdown
 # Enable Keyless SSH Access Between Ansible Master and Slave
 
 To enable keyless SSH access between your Ansible master (control node) and slave (managed node), you need to configure SSH key-based authentication. This allows you to run Ansible commands without needing to input a password each time. Here's how you can do it step by step:
